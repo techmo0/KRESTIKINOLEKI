@@ -9,36 +9,43 @@ typedef struct field_
 
 int fieldsize;
 
-field* scan(){
-  field* f = malloc(sizeof(field));
+field* scan(field* f){
   scanf("%i", &fieldsize);
   int* data = malloc(sizeof(int) * fieldsize * fieldsize);
   data = memset(data, 0, sizeof(int) * fieldsize * fieldsize);
-  f.field_data = data ;
+  f->field_data = data ;
   return f;
 }
 
-void visual()
+void visual(field* f)
 {
   int pointer = fieldsize;
   int i,j;
-  printf ("  1 2 3\n");
+  printf("%s","  " );
+  for(i = 1; i <= fieldsize; i++){
+    printf("%i ",i );
+  }
+  printf("%s\n", "");
   for(i=1; i<=fieldsize; i++)
   {
     printf ("%d", i);
 
-    for (j= fieldsize - pointer; j<=fieldsize*i; j++)
-  {
-      if (a[i][j]==0){printf("| ");};
-      if (a[i][j]==1){printf("|O");};
-      if (a[i][j]==2){printf("|X");};
-  }
+    for (j= i * fieldsize - pointer; j<fieldsize*i; j++)
+    {
+      if (f->field_data[j]==0){printf("| ");};
+      if (f->field_data[j]==1){printf("|O");};
+      if (f->field_data[j]==2){printf("|X");};
+    }
 
   printf ("|\n");
-  printf ("________\n");
+    for(int z = 1; z<= fieldsize + 1; z++){
+      printf ("__");
+    }
+    printf("%s\n", "");
+  }
 }
 
-void hod (int n)
+/*void hod (int n)
 {
   int hi;
   int sto;
@@ -59,8 +66,10 @@ void hod (int n)
 int proverka()
 {
 }
-
+*/
 int main()
 {
-
+  field* f = malloc(sizeof(field));\
+  visual(scan(f));
+  return 0;
 }
