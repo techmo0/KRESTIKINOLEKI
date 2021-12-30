@@ -9,6 +9,15 @@ typedef struct field_
 
 int fieldsize;
 
+int combining(int a, int b) {
+   int comb= 1;
+   while (comb <= b)
+      comb *= 10;
+   return a*comb + b;
+}
+
+int combi = combining(fieldsize, fieldsize);
+
 field* scan(field* f){
   scanf("%i", &fieldsize);
   int* data = malloc(sizeof(int) * fieldsize * fieldsize);
@@ -45,23 +54,23 @@ void visual(field* f)
   }
 }
 
-/*void hod (int n)
+void Move (int n, field* f)
 {
-  int hi;
-  int sto;
-  int str;
-  int ver=0;
+  int move; //ход
+  int column;
+  int row;
+  int ver=0; //корректность
   while (ver==0)
   {
-
     printf ("Your move. Enter the row and column number.\n");
-    scanf("%d", &hi);
+    scanf("%d", &move);
     sto=hi%10;
     str=(hi-sto)/10;
-    if (a[str][sto]==0 && (hi==11 || hi==12 || hi==13 || hi==21 || hi==22 || hi==23 || hi==31 || hi==32 || hi==33 )) (ver=1);
+    int cage = (str-1) * field f
+    if (f[cage]== 0 && (cage >= 0 && cage <= combi)) (ver=1);
   }
-  if ( n==1) {a[str][sto]=1;}
-  if ( n==2) {a[str][sto]=2;}
+  if ( n==1) {a[cage]=1;}
+  if ( n==2) {a[cage]=2;}
 }
 int proverka()
 {
@@ -69,7 +78,7 @@ int proverka()
 */
 int main()
 {
-  field* f = malloc(sizeof(field));\
+  field* f = malloc(sizeof(field));
   visual(scan(f));
   return 0;
 }
