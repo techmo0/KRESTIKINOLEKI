@@ -66,10 +66,10 @@ void visual(field* f)
 
 void Move(int n, field* f)
 {
-	int move; //ход
+	int move;
 	int column;
 	int row;
-	int ver = 0; //корректность
+	int ver = 0;
 	while (ver == 0)
 	{
 		printf("Your move. Enter the row and column number.\n");
